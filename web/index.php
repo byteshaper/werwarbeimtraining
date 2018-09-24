@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once("constants.php");
 require_once("Group.php");
 require_once("Coach.php");
 
@@ -17,7 +18,6 @@ function echoSelectedIfInSession($fieldName, $id) {
     echo "";
   }
 }
-
 
  ?>
 
@@ -42,53 +42,52 @@ function echoSelectedIfInSession($fieldName, $id) {
         <form action="submit.php" method="post">
 
             <div class="formRow">
-              <label for="coach">Trainer*in</label>
-
-              <select id="coach" name="coachId" size="1">
+              <label for="<?=FIELD_NAME_COACH?>"><?=EXPECTED_FIELDS[FIELD_NAME_COACH]?></label>
+              <select id="<?=FIELD_NAME_COACH?>" name="<?=FIELD_NAME_COACH?>" size="1">
                 <?php foreach(Coach::loadAllCoaches() as $coach) { ?>
-                  <option value="<?=$coach->id?>"<?php echoSelectedIfInSession("coachId", $coach->id); ?>><?=$coach->name?></option>
+                  <option value="<?=$coach->id?>"<?php echoSelectedIfInSession(FIELD_NAME_COACH, $coach->id); ?>><?=$coach->name?></option>
                 <?php } ?>
               </select>
             </div>
 
             <div class="formRow">
-              <label for="group">Gruppe</label>
-              <select id="group" name="groupId" size="1">
+              <label for="<?=FIELD_NAME_GROUP?>"><?=EXPECTED_FIELDS[FIELD_NAME_GROUP]?></label>
+              <select id="<?=FIELD_NAME_GROUP?>" name="<?=FIELD_NAME_GROUP?>" size="1">
                 <?php foreach(Group::loadAllGroups() as $group) { ?>
-                    <option value="<?=$group->id?>"<?php echoSelectedIfInSession("groupId", $group->id); ?>><?=$group->name?></option>
+                    <option value="<?=$group->id?>"<?php echoSelectedIfInSession(FIELD_NAME_GROUP, $group->id); ?>><?=$group->name?></option>
                 <?php } ?>
               </select>
             </div>
 
             <div class="formRow">
-              <label for="trainingDate">Trainingsdatum</label>
-              <input type="date" id="trainingDate" name="trainingDate" value="<?php echoIfInSession("trainingDate"); ?>">
+              <label for="<?=FIELD_NAME_TRAININGDATE?>"><?=EXPECTED_FIELDS[FIELD_NAME_TRAININGDATE]?></label>
+              <input type="date" id="<?=FIELD_NAME_TRAININGDATE?>" name="<?=FIELD_NAME_TRAININGDATE?>" value="<?php echoIfInSession(FIELD_NAME_TRAININGDATE); ?>">
             </div>
 
             <div class="formRow">
-              <label for="femaleUnder18">Schwimmer<strong>innen unter</strong> 18</label>
-              <input type="number" id="femaleUnder18" name="femaleUnder18" min="0" step="1" value="<?php echoIfInSession("femaleUnder18"); ?>">
+              <label for="femaleUnder18"><?=EXPECTED_FIELDS[FIELD_NAME_FEMALE_UNDER]?></label>
+              <input type="number" id="<?=FIELD_NAME_FEMALE_UNDER?>" name="<?=FIELD_NAME_FEMALE_UNDER?>" min="0" step="1" value="<?php echoIfInSession(FIELD_NAME_FEMALE_UNDER); ?>">
             </div>
 
             <div class="formRow">
-              <label for="maleUnder18">Schwimm<strong>er unter</strong> 18</label>
-              <input type="number" id="maleUnder18" name="maleUnder18" min="0" step="1" value="<?php echoIfInSession("maleUnder18"); ?>">
+              <label for="femaleUnder18"><?=EXPECTED_FIELDS[FIELD_NAME_MALE_UNDER]?></label>
+              <input type="number" id="<?=FIELD_NAME_MALE_UNDER?>" name="<?=FIELD_NAME_MALE_UNDER?>" min="0" step="1" value="<?php echoIfInSession(FIELD_NAME_MALE_UNDER); ?>">
             </div>
 
             <div class="formRow">
-              <label for="femaleOver18">Schwimmer<strong>innen über</strong> 18</label>
-              <input type="number" id="femaleOver18" name="femaleOver18" min="0" step="1" value="<?php echoIfInSession("femaleOver18"); ?>">
+              <label for="femaleUnder18"><?=EXPECTED_FIELDS[FIELD_NAME_FEMALE_OVER]?></label>
+              <input type="number" id="<?=FIELD_NAME_FEMALE_OVER?>" name="<?=FIELD_NAME_FEMALE_OVER?>" min="0" step="1" value="<?php echoIfInSession(FIELD_NAME_FEMALE_OVER); ?>">
             </div>
 
             <div class="formRow">
-              <label for="maleOver18">Schwimm<strong>er über</strong> 18</label>
-              <input type="number" id="maleOver18" name="maleOver18" min="0" step="1" value="<?php echoIfInSession("maleOver18"); ?>">
+              <label for="femaleUnder18"><?=EXPECTED_FIELDS[FIELD_NAME_MALE_OVER]?></label>
+              <input type="number" id="<?=FIELD_NAME_MALE_OVER?>" name="<?=FIELD_NAME_MALE_OVER?>" min="0" step="1" value="<?php echoIfInSession(FIELD_NAME_MALE_OVER); ?>">
             </div>
+
 
             <div class="formRow">
               <input id="saveButton" type="submit" value="Speichern">
             </div>
-
         <form>
 
         <?php if(isset($_SESSION['formValidationError'])) { ?>

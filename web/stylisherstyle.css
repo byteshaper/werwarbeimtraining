@@ -44,6 +44,30 @@ form {
   border-radius: 0.25rem;
 }
 
+#saveButtonLink a {
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  display: block;
+  text-decoration: none;
+}
+
+#backButtonLink a {
+  font-size: 1.5rem;
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  display: block;
+  text-decoration: none;
+}
+
 #formValidationError {
   font-size: 1.1rem;
   color: #721c24;
