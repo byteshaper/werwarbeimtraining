@@ -4,6 +4,7 @@ session_start();
 require_once("constants.php");
 require_once("ParticipantCounts.php");
 require_once("useragentstats.php");
+require_once("util.php");
 
 $participantCounts = new ParticipantCounts(
     $_SESSION[FIELD_NAME_GROUP],
@@ -16,7 +17,6 @@ $participantCounts = new ParticipantCounts(
 
 try {
   $participantCounts->save();
-  unset($_SESSION['formValidationError']);
 
   foreach (array_keys(EXPECTED_FIELDS) as $fieldName) {
     unset($_SESSION[$fieldName]);

@@ -5,6 +5,8 @@ class ReadOnlyEntity {
 
   private static $SELECT = "SELECT id, name FROM wwbt_<TABLENAME> ORDER BY name";
 
+  private static $SELECT_BY_ID = "SELECT name FROM wwbt_<TABLENAME> WHERE id = ?";
+
   public $id;
 
   public $name;
@@ -31,6 +33,18 @@ class ReadOnlyEntity {
 
     $mysqli->close();
     return $items;
+  }
+
+  protected static function loadNameById($tableNameSuffix, $id) {
+    $mysqli = createDbConnection();
+    $stmt = $mysqli->prepare(str_replace("<TABLENAME>", $tableNameSuffix, self::$SELECT_BY_ID));
+    $idAsInt = (int) $id;
+    $stmt->bind_param("i", $idAsInt);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $name = $result->fetch_assoc()['name'];
+    $mysqli->close();
+    return $name;
   }
 }
 

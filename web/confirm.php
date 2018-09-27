@@ -2,6 +2,8 @@
 
 session_start();
 require_once("constants.php");
+require_once("Coach.php");
+require_once("Group.php");
 
  ?>
 
@@ -25,7 +27,17 @@ require_once("constants.php");
           <?php foreach(array_keys(EXPECTED_FIELDS) as $fieldName) {?>
             <tr>
               <td class="tableCellLabel"><?=EXPECTED_FIELDS[$fieldName]?></td>
-              <td class="tableCellValue"><?=$fieldName?></td>
+              <td class="tableCellValue">
+                <?php
+                  if($fieldName == FIELD_NAME_COACH) {
+                    echo Coach::loadCoachNameById($_SESSION[$fieldName]);
+                  } else if($fieldName == FIELD_NAME_GROUP) {
+                    echo Group::loadGroupNameById($_SESSION[$fieldName]);
+                  } else {
+                    echo $_SESSION[$fieldName];
+                  }
+                ?>
+              </td>
             </tr>
           <?php } ?>
         </table>

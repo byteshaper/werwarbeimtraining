@@ -3,16 +3,11 @@
 session_start();
 
 require_once("constants.php");
+require_once("util.php");
 //require_once("ParticipantCounts.php");
 //require_once("Coach.php");
 //require_once("Group.php");
 //require_once("useragentstats.php");
-
-function backToInputWithError($errorMessage) {
-  $_SESSION['formValidationError'] = $errorMessage;
-  header("Location: index.php");
-  exit;
-}
 
 function postToSession() {
   foreach (array_keys(EXPECTED_FIELDS) as $fieldName) {
@@ -49,6 +44,7 @@ function validateUserInputComplete() {
 
 postToSession();
 validateUserInputComplete();
+unset($_SESSION['formValidationError']);
 header("Location: confirm.php");
 exit;
 
