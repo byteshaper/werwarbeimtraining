@@ -13,8 +13,8 @@ define("EXPECTED_FIELDS", array(
   FIELD_NAME_GROUP => "Gruppe",
   FIELD_NAME_TRAININGDATE => "Trainingsdatum",
   FIELD_NAME_FEMALE_UNDER => "Schwimmer<strong>innen unter</strong> 18",
-  FIELD_NAME_MALE_UNDER => "Schwimmer unter 18",
-  FIELD_NAME_FEMALE_OVER => "Schwimmerinnen über 18",
-  FIELD_NAME_MALE_OVER => "Schwimmer über 18"));
+  FIELD_NAME_MALE_UNDER => "Schwimm<strong>er unter</strong> 18",
+  FIELD_NAME_FEMALE_OVER => "Schwimmer<strong>innen über</strong> 18",
+  FIELD_NAME_MALE_OVER => "Schwimm<strong>er über</strong> 18"));
 
  ?>

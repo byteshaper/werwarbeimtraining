@@ -42,12 +42,12 @@ require_once("Group.php");
           <?php } ?>
         </table>
 
-        <div class="formRow">
+        <div class="buttonBar">
           <div id="saveButtonLink">
             <a href="success.php">Speichern</a>
           </div>
           <div id="backButtonLink">
-            <a href="index.php">Zurück"</a>
+            <a href="index.php">Zurück</a>
           </div>
         </div>
 

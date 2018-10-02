@@ -44,6 +44,11 @@ form {
   border-radius: 0.25rem;
 }
 
+.buttonBar {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 #saveButtonLink a {
   font-size: 1.5rem;
   color: #fff;
@@ -52,8 +57,12 @@ form {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 0.25rem;
+  margin: 1rem;
   display: block;
   text-decoration: none;
+  text-align: center;
+  flex: 1 1 100%;
+  width: 20rem;
 }
 
 #backButtonLink a {
@@ -64,8 +73,12 @@ form {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 0.25rem;
+  margin: 1rem;
   display: block;
   text-decoration: none;
+  text-align: center;
+  flex: 1 1 100%;
+  width: 20rem;
 }
 
 #formValidationError {
@@ -76,4 +89,20 @@ form {
   padding: 0.5rem;
   margin-top: 1rem;
   border-radius: 0.25rem;
+}
+
+#confirmTable {
+  border-collapse: separate;
+  border-spacing: 0.5rem;
+}
+
+#confirmTable td {
+  padding-right: 3rem;
+  border-bottom: 0.1rem dotted grey;
+}
+
+
+#confirmTable tr:nth-child(even) {
+  background-color: #e4ebf2;
+  color: #000;
 }
