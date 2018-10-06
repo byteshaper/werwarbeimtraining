@@ -57,7 +57,9 @@ form {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 0.25rem;
-  margin: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;  
   display: block;
   text-decoration: none;
   text-align: center;
@@ -73,7 +75,9 @@ form {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 0.25rem;
-  margin: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: block;
   text-decoration: none;
   text-align: center;

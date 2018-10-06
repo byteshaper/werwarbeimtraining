@@ -23,7 +23,7 @@ require_once("Group.php");
           </p>
         </header>
 
-        <table>
+        <table id="confirmTable">
           <?php foreach(array_keys(EXPECTED_FIELDS) as $fieldName) {?>
             <tr>
               <td class="tableCellLabel"><?=EXPECTED_FIELDS[$fieldName]?></td>
